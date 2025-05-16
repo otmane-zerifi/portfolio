@@ -33,7 +33,7 @@ const Certifications: React.FC = () => {
             </p>
             
             <a
-              href="https://www.coursera.org/account/accomplishments/professional-cert/123456789"
+              href="./Coursera 28SCPF3JU6R8.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 inline-block text-primary-600 dark:text-primary-400 
