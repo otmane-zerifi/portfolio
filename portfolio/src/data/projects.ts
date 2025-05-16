@@ -22,9 +22,9 @@ export const projectsData: Project[] = [
     id: 2,
     title: "Cub3D",
     description: "A real-time 3D raycaster implemented in C, inspired by Wolfenstein 3D. Features texture mapping, sprite rendering, and collision detection.",
-    image: "https://images.pexels.com/photos/6633920/pexels-photo-6633920.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    image: "./cub.png",
     tags: ["C", "Raycasting", "3D Graphics", "Game Development"],
-    githubUrl: "https://github.com/otmanezrifi/cub3d"
+    githubUrl: "https://github.com/otmane-zrifi/cub3d"
   },
   {
     id: 3,
@@ -36,11 +36,19 @@ export const projectsData: Project[] = [
   },
   {
     id: 4,
-    title: "Transcendence",
+    title: "Pong Game",
     description: "A full-stack web application featuring real-time multiplayer Pong game with chat, user authentication, and profile management.",
-    image: "https://images.pexels.com/photos/4144179/pexels-photo-4144179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    image: "https://www.shutterstock.com/shutterstock/videos/1108728369/thumb/1.jpg?ip=x480",
     tags: ["Django", "WebSockets", "PostgreSQL", "JavaScript"],
-    githubUrl: "https://github.com/otmanezrifi/transcendence",
-    liveUrl: "https://transcendence-pong.vercel.app"
+    githubUrl: "https://github.com/otmane-zerifi/transcendence",
+    liveUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7297704665062735873"
+  },
+   {
+    id: 5,
+    title: "Inception",
+    description: "A comprehensive DevOps project implementing a complete web infrastructure using Docker containers. Features WordPress, MariaDB, and NGINX with custom configurations, SSL, and volume management.",
+    image: "https://www.incredibuild.com/wp-content/uploads/2024/12/21.-Docker-101.png",
+    tags: ["Docker", "Docker-Compose", "WordPress", "MariaDB", "NGINX", "DevOps"],
+    githubUrl: "https://github.com/otmane-zerifi/inception"
   }
 ];
