@@ -13,7 +13,7 @@ export const projectsData: Project[] = [
     id: 1,
     title: "Vendor Risk Dashboard",
     description: "An interactive dashboard to monitor and manage vendor risk assessment, featuring comprehensive analytics, charts, and visual risk scoring.",
-    image: "../../public/dashboard.png",
+    image: "/dashboard.png",
     tags: ["React", "Tailwind CSS", "Recharts", "TypeScript"],
     githubUrl: "https://github.com/otmane-zerifi/SecureGuard",
     liveUrl: "https://secure-guard-two.vercel.app/"
