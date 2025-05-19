@@ -24,7 +24,7 @@ export const projectsData: Project[] = [
     description: "A real-time 3D raycaster implemented in C, inspired by Wolfenstein 3D. Features texture mapping, sprite rendering, and collision detection.",
     image: "./cub.png",
     tags: ["C", "Raycasting", "3D Graphics", "Game Development"],
-    githubUrl: "https://github.com/otmane-zrifi/cub3d"
+    githubUrl: "https://github.com/otmane-zrifi/cub3"
   },
   {
     id: 3,
