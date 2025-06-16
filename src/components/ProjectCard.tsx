@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { Project } from '../data/projects';
 
 interface ProjectCardProps {
@@ -68,7 +68,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           transform: "translateZ(75px)",
           transformStyle: "preserve-3d",
         }}
-        className="relative h-full p-6"
+        className="relative h-full p-6 flex flex-col"
       >
         <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg">
           <img
@@ -116,7 +116,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           style={{
             transform: "translateZ(50px)",
           }}
-          className="flex gap-4 relative z-20"
+          className="flex gap-4 mt-auto pt-4"
         >
           {project.githubUrl && (
             <a
@@ -125,12 +125,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               rel="noopener noreferrer"
               onMouseEnter={() => setIsButtonHovered(true)}
               onMouseLeave={() => setIsButtonHovered(false)}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary-100 dark:bg-secondary-700 
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-secondary-100 dark:bg-secondary-700 
                        text-secondary-700 dark:text-secondary-300 hover:bg-secondary-200 dark:hover:bg-secondary-600 
                        transition-all duration-300 transform hover:scale-105"
             >
-              <Github size={18} />
-              <span className="font-medium">View Code</span>
+              <Github className="w-5 h-5 flex-shrink-0" />
+              <span className="font-medium whitespace-nowrap">View Code</span>
             </a>
           )}
           {project.liveUrl && (
@@ -140,11 +140,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               rel="noopener noreferrer"
               onMouseEnter={() => setIsButtonHovered(true)}
               onMouseLeave={() => setIsButtonHovered(false)}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 
                        text-white transition-all duration-300 transform hover:scale-105 hover:shadow-glow"
             >
-              <ExternalLink size={18} />
-              <span className="font-medium">Live Demo</span>
+              <ExternalLink className="w-5 h-5 flex-shrink-0" />
+              <span className="font-medium whitespace-nowrap">Live Demo</span>
             </a>
           )}
         </div>
