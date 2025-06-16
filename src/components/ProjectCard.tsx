@@ -70,7 +70,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         }}
         className="relative h-full p-6 flex flex-col"
       >
-        <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg">
+        <div className="relative w-full h-64 mb-4 overflow-hidden rounded-lg">
           <img
             src={project.image}
             alt={project.title}

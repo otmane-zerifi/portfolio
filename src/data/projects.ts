@@ -4,7 +4,7 @@ export interface Project {
   description: string;
   image: string;
   tags: string[];
-  githubUrl: string;
+  githubUrl?: string;
   liveUrl?: string;
 }
 
@@ -43,12 +43,20 @@ export const projectsData: Project[] = [
     githubUrl: "https://github.com/otmane-zerifi/transcendence",
     liveUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7297704665062735873"
   },
-   {
+  {
     id: 5,
     title: "Inception",
     description: "A comprehensive DevOps project implementing a complete web infrastructure using Docker containers. Features WordPress, MariaDB, and NGINX with custom configurations, SSL, and volume management.",
     image: "https://www.incredibuild.com/wp-content/uploads/2024/12/21.-Docker-101.png",
     tags: ["Docker", "Docker-Compose", "WordPress", "MariaDB", "NGINX", "DevOps"],
     githubUrl: "https://github.com/otmane-zerifi/inception"
+  },
+  {
+    id: 6,
+    title: "ZSeller",
+    description: "A responsive e-commerce web application built using React and deployed on Vercel. The platform showcases products in a clean, mobile-friendly UI, allowing users to browse stock items efficiently. Features modern frontend architecture with dynamic routing and fast loading via modern bundling tools.",
+    image: "/e-com.png",
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router", "Vercel"],
+    liveUrl: "https://family-business-ecommerce.vercel.app"
   }
 ];
