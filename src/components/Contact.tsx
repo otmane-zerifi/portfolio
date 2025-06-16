@@ -2,7 +2,7 @@
 
 import type React from "react"
 import SectionWrapper from "./SectionWrapper"
-import { Mail, Github, Linkedin, Send, Phone } from "lucide-react"
+import { Mail, Github, Linkedin, Send } from "lucide-react"
 import { motion } from "framer-motion"
 
 const Contact: React.FC = () => {
@@ -69,29 +69,6 @@ const Contact: React.FC = () => {
                              group-hover:text-primary-600 dark:group-hover:text-primary-400
                              transition-colors duration-300">
                     otmanamrani747@gmail.com
-                  </p>
-                </div>
-              </a>
-
-              <a
-                href="tel:+212689902421"
-                className="group flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-secondary-800 
-                         shadow-card hover:shadow-card-hover transition-all duration-300
-                         border border-secondary-100 dark:border-secondary-700
-                         hover:border-primary-200 dark:hover:border-primary-800"
-              >
-                <div className="p-3 rounded-lg bg-primary-50 dark:bg-primary-900/30 
-                              text-primary-600 dark:text-primary-400
-                              group-hover:bg-primary-100 dark:group-hover:bg-primary-900/50
-                              transition-colors duration-300">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <p className="text-sm text-secondary-500 dark:text-secondary-400">Phone</p>
-                  <p className="font-medium text-secondary-900 dark:text-white 
-                             group-hover:text-primary-600 dark:group-hover:text-primary-400
-                             transition-colors duration-300">
-                    +212 689-902421
                   </p>
                 </div>
               </a>
