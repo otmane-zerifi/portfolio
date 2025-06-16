@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, User, MessageSquare } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -24,15 +25,25 @@ const ContactForm: React.FC = () => {
     setError('');
 
     try {
-      // This is a mock submission
-      // In a real application, you would send the form data to a server
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send email using EmailJS
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Otmane Amrani Zerifi',
+          to_email: 'otmanamrani747@gmail.com',
+        },
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      );
       
-      // Simulate success
       setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
     } catch (err) {
       setError('Failed to send message. Please try again later.');
+      console.error('Error sending email:', err);
     } finally {
       setIsSubmitting(false);
     }
@@ -62,7 +73,10 @@ const ContactForm: React.FC = () => {
           <button 
             type="button" 
             onClick={() => setIsSubmitted(false)}
-            className="mt-4 btn-secondary"
+            className="mt-4 px-4 py-2 rounded-lg bg-white dark:bg-secondary-800 
+                     text-secondary-900 dark:text-white border border-secondary-200 
+                     dark:border-secondary-700 hover:bg-secondary-50 dark:hover:bg-secondary-700 
+                     transition-colors duration-300"
           >
             Send another message
           </button>
@@ -141,7 +155,10 @@ const ContactForm: React.FC = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full btn-primary flex items-center justify-center gap-2"
+            className="w-full px-6 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 
+                     text-white font-medium transition-colors duration-300
+                     disabled:opacity-50 disabled:cursor-not-allowed
+                     flex items-center justify-center gap-2"
           >
             {isSubmitting ? (
               <>
