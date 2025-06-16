@@ -19,15 +19,27 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.3, delay: index * 0.05 }}
       whileHover={{ scale: 1.05, y: -5 }}
-      className="card hover:shadow-xl hover:ring-1 hover:ring-primary-300 dark:hover:ring-primary-700 
-                flex flex-col items-center py-4 px-2"
+      className="group relative bg-white dark:bg-secondary-800 rounded-xl p-6 
+                shadow-card hover:shadow-card-hover transition-all duration-300
+                border border-secondary-100 dark:border-secondary-700
+                hover:border-primary-200 dark:hover:border-primary-800"
     >
-      <div className="mb-3 text-primary-600 dark:text-primary-400">
-        {IconComponent && <IconComponent size={30} />}
+      <div className="relative z-10 flex flex-col items-center">
+        <div className="mb-4 text-primary-600 dark:text-primary-400 
+                      transform transition-transform duration-300 group-hover:scale-110">
+          {IconComponent && <IconComponent size={36} />}
+        </div>
+        <span className="font-medium text-secondary-800 dark:text-secondary-200 
+                       text-center transition-colors duration-300
+                       group-hover:text-primary-600 dark:group-hover:text-primary-400">
+          {skill.name}
+        </span>
       </div>
-      <span className="font-medium text-secondary-800 dark:text-secondary-200">
-        {skill.name}
-      </span>
+      
+      {/* Background gradient effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent 
+                    dark:from-primary-900/10 dark:to-transparent opacity-0 
+                    group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
     </motion.div>
   );
 };

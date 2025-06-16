@@ -48,10 +48,27 @@ export default {
       },
       boxShadow: {
         card: '0 10px 30px -5px rgba(0, 0, 0, 0.1)',
+        'card-hover': '0 20px 40px -5px rgba(0, 0, 0, 0.15)',
+        glow: '0 0 15px rgba(99, 102, 241, 0.5)',
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
-      }
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+      },
+      backgroundImage: {
+        'grid-pattern': 'linear-gradient(to right, #6366f1 1px, transparent 1px), linear-gradient(to bottom, #6366f1 1px, transparent 1px)',
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+      backgroundSize: {
+        'grid-pattern': '40px 40px',
+      },
     },
   },
   plugins: [],
