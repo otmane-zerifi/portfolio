@@ -125,16 +125,24 @@ const Contact: React.FC = () => {
 
               <a
                 href="mailto:otmanamrani747@gmail.com"
-                className="group flex items-center gap-4 p-4 rounded-xl bg-primary-600 hover:bg-primary-700 
+                className="group flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-secondary-800 
                          shadow-card hover:shadow-card-hover transition-all duration-300
-                         text-white md:col-span-2"
+                         border border-secondary-100 dark:border-secondary-700
+                         hover:border-primary-200 dark:hover:border-primary-800"
               >
-                <div className="p-3 rounded-lg bg-white/10 group-hover:bg-white/20 transition-colors duration-300">
+                <div className="p-3 rounded-lg bg-primary-50 dark:bg-primary-900/30 
+                              text-primary-600 dark:text-primary-400
+                              group-hover:bg-primary-100 dark:group-hover:bg-primary-900/50
+                              transition-colors duration-300">
                   <Send size={24} />
                 </div>
                 <div>
-                  <p className="text-sm text-white/80">Send Message</p>
-                  <p className="font-medium">Let's talk about your project</p>
+                  <p className="text-sm text-secondary-500 dark:text-secondary-400">Send Message</p>
+                  <p className="font-medium text-secondary-900 dark:text-white 
+                             group-hover:text-primary-600 dark:group-hover:text-primary-400
+                             transition-colors duration-300">
+                    Let's talk about your project
+                  </p>
                 </div>
               </a>
             </motion.div>
