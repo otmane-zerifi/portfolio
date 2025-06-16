@@ -57,6 +57,6 @@ export const projectsData: Project[] = [
     description: "A responsive e-commerce web application built using React and deployed on Vercel. The platform showcases products in a clean, mobile-friendly UI, allowing users to browse stock items efficiently. Features modern frontend architecture with dynamic routing and fast loading via modern bundling tools.",
     image: "/e-com.png",
     tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router", "Vercel"],
-    liveUrl: "https://family-business-ecommerce.vercel.app"
+    liveUrl: "https://zarifi-stock.vercel.app/"
   }
 ];

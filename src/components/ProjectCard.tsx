@@ -61,7 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ scale: 1.02 }}
-      className="relative w-full h-[400px] rounded-xl bg-white dark:bg-secondary-800 shadow-xl overflow-hidden"
+      className="relative w-full h-[600px] rounded-xl bg-white dark:bg-secondary-800 shadow-xl overflow-hidden"
     >
       <div
         style={{
@@ -70,7 +70,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         }}
         className="relative h-full p-6 flex flex-col"
       >
-        <div className="relative w-full h-64 mb-4 overflow-hidden rounded-lg">
+        <div className="relative w-full h-96 mb-4 overflow-hidden rounded-lg">
           <img
             src={project.image}
             alt={project.title}
