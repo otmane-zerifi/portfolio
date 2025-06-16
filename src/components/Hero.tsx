@@ -3,9 +3,18 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, FileText, Code, Github, Linkedin } from 'lucide-react';
+import TypeWriter from "./TypeWriter"
+import CursorTrail from "./CursorTrail"
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null)
+
+  const roles = [
+    "Full Stack Developer",
+    "UI/UX Designer",
+    "Problem Solver",
+    "Tech Enthusiast",
+  ]
 
   return (
     <div ref={containerRef} className="relative min-h-screen overflow-hidden bg-gradient-to-br from-secondary-50 via-white to-primary-50 dark:from-secondary-900 dark:via-secondary-800 dark:to-primary-900">
@@ -76,7 +85,10 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-2xl md:text-3xl font-medium text-secondary-600 dark:text-secondary-300 mb-6"
           >
-            Full-Stack Developer
+            <TypeWriter
+              words={roles}
+              className="text-primary-600 dark:text-primary-400 font-bold"
+            />
           </motion.h2>
 
           <motion.p
@@ -136,6 +148,8 @@ const Hero: React.FC = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      <CursorTrail />
     </div>
   );
 };

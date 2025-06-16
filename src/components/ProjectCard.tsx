@@ -1,5 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+"use client"
+
+import React, { useRef, useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import { Project } from '../data/projects';
 
@@ -9,8 +11,49 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+    setIsHovered(false);
+  };
+
   return (
     <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+      }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -28,16 +71,37 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         <div className="absolute inset-0 bg-primary-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
       </div>
       
-      <div className="p-6">
-        <h3 className="text-2xl font-bold mb-3 text-secondary-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
+      <div
+        style={{
+          transform: "translateZ(75px)",
+          transformStyle: "preserve-3d",
+        }}
+        className="p-6"
+      >
+        <h3
+          style={{
+            transform: "translateZ(50px)",
+          }}
+          className="text-2xl font-bold mb-3 text-secondary-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300"
+        >
           {project.title}
         </h3>
         
-        <p className="text-secondary-700 dark:text-secondary-300 mb-4 line-clamp-3 leading-relaxed">
+        <p
+          style={{
+            transform: "translateZ(25px)",
+          }}
+          className="text-secondary-700 dark:text-secondary-300 mb-4 line-clamp-3 leading-relaxed"
+        >
           {project.description}
         </p>
         
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div
+          style={{
+            transform: "translateZ(25px)",
+          }}
+          className="flex flex-wrap gap-2 mb-6"
+        >
           {project.tags.map((tag) => (
             <span
               key={tag}
@@ -50,7 +114,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           ))}
         </div>
         
-        <div className="flex gap-4 mt-auto pt-2">
+        <div
+          style={{
+            transform: "translateZ(50px)",
+          }}
+          className="flex gap-4 mt-auto pt-2"
+        >
           <a
             href={project.githubUrl}
             target="_blank"
@@ -77,6 +146,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           )}
         </div>
       </div>
+
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity duration-300"
+        style={{
+          opacity: isHovered ? 1 : 0,
+        }}
+      />
     </motion.div>
   );
 };
